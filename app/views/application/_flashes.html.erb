@@ -1,0 +1,7 @@
+<% if flash.any? %>
+  <section id="flashes" data-role="flash-notice">
+    <% flash.each do |name, message| -%>
+      <div class="flash-<%= name %>"><%= message %></div>
+    <% end -%>
+  </section>
+<% end %>

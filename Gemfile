@@ -13,6 +13,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "redis", "~> 4.0"
 gem "sidekiq"
+gem "sidekiq-failures"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -61,6 +62,10 @@ group :development do
 end
 
 group :test do
+  gem "capybara"
+  gem "cuprite"
+  gem "formulaic"
+  gem "launchy"
   gem "simplecov", require: false
   gem "timecop"
   gem "webmock"
@@ -70,3 +75,5 @@ group :staging, :production do
   gem "rack-timeout"
   gem "rails_stdout_logging"
 end
+
+gem "turbo_tests", "~> 1.3"

@@ -1,0 +1,13 @@
+<section>
+  <h2><%= I18n.t("home.header") %></h2>
+
+  <% if current_user.logged_in? %>
+    <p>
+      Omnibus headless CMS
+    </p>
+  <% else %>
+    <p>
+      Devise things here
+    </p>
+  <% end %>
+</section>

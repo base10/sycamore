@@ -1,0 +1,23 @@
+<nav id="user_actions">
+  <% if current_user.logged_in? %>
+    👋 <%= current_user&.name %>
+    <%=
+      link_to(
+        I18n.t("devise.actions.logout"),
+        destroy_user_session_path,
+        method: :delete,
+        data: { turbo_method: "delete" }
+      )
+    %>
+  <% else %>
+    <%= I18n.t("home.welcome_visitor") %>
+
+    <%- if controller_name != 'sessions' %>
+      <%= link_to I18n.t("devise.actions.login"), new_user_session_path, data: { turbo: false } %>
+    <% end %>
+
+    <%- if controller_name != 'registrations' %>
+      <%= link_to I18n.t("devise.actions.sign_up"), new_user_registration_path, data: { turbo: false } %>
+    <% end %>
+  <% end %>
+</nav>

@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  home:
+    welcome_visitor: "Welcome, visitor!"
+    header: "Welcome to Sycamore"

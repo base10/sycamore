@@ -33,10 +33,11 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
-  config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::ControllerHelpers, type: :view
+  # config.include Devise::Test::ControllerHelpers, type: :controller
+  # config.include Devise::Test::ControllerHelpers, type: :view
   config.include Devise::Test::IntegrationHelpers, type: :system
   config.include FactoryBot::Syntax::Methods
+  config.include Formulaic::Dsl, type: :system
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
