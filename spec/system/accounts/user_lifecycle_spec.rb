@@ -86,7 +86,7 @@ RSpec.describe "User Lifecycle", type: :system do
         :new_user,
         {
           email: user.email,
-          password: user.password,
+          password: user.password
         }
       )
 
@@ -109,7 +109,6 @@ RSpec.describe "User Lifecycle", type: :system do
     it "allows a user to log out" do
       user = FactoryBot.create(:user)
       login_as(user, scope: :user)
-
 
       visit "/"
 

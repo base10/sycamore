@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to site.name, site %></td>
+  <td><%= site.url %></td>
+
+  <td>
+    <%= link_to "Edit", edit_site_path(site) %> |
+    <%= link_to "Delete", site, method: :delete %>
+  </td>
+</tr>

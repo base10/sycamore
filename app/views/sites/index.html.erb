@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Sites</h1>
+
+<table id="sites">
+  <tr>
+    <th>Name</th>
+    <th>URL</th>
+    <th></th>
+  </tr>
+  <% @sites.each do |site| %>
+    <%= render site %>
+  <% end %>
+</table>
+
+<%= link_to "New site", new_site_path %>
