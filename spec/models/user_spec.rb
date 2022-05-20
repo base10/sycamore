@@ -9,6 +9,12 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :encrypted_password }
   end
 
+  describe "associations" do
+    it "has many articles" do
+      expect(subject).to have_many(:articles)
+    end
+  end
+
   describe "behaviors" do
     it { should be_logged_in }
 

@@ -1,5 +1,7 @@
 class Site < ApplicationRecord
   # Add a soft limit on the length of name and URL
+  has_many :articles
+
   validates(
     :name,
     length: {maximum: 250},
