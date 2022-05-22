@@ -32,13 +32,11 @@
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
     <%= form.label :site_id, style: "display: block" %>
-    <%= form.text_field :site_id %>
+    <%=
+      form.select :site_id,
+      Site.all.collect { |site| [site.name, site.id] }, include_blank: false
+    %>
   </div>
 
   <div>
