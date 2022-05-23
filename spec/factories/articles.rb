@@ -4,6 +4,12 @@ FactoryBot.define do
     title { "Title" }
     summary { "Summary of the article" }
     body { "Sample article text" }
+
+    published { true }
+    private { false }
+
+    published_on { Time.now.to_date }
+
     user
     site
   end

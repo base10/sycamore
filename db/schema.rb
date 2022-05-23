@@ -19,11 +19,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_19_011752) do
     t.string "title"
     t.text "summary"
     t.text "body", null: false
+    t.boolean "published", default: true, null: false
+    t.boolean "private", default: false, null: false
     t.bigint "user_id", null: false
     t.bigint "site_id", null: false
+    t.date "published_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["site_id"], name: "index_articles_on_site_id"
+    t.index ["slug", "published_on"], name: "index_articles_on_slug_and_published_on", unique: true
     t.index ["slug"], name: "index_articles_on_slug"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
