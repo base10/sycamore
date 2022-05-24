@@ -19,9 +19,5 @@ class Article < ApplicationRecord
   scope :public, -> { where(private: false) }
 
 
-  # Add scope for published
-  # Add scope for unpublished
-  # Add scope for public
-  # Add scope for private
   # Add combined scope
 end
