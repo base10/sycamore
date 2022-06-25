@@ -6,7 +6,7 @@ FactoryBot.define do
     body { "Sample article text" }
 
     published { true }
-    private { false }
+    public { true }
 
     published_on { Time.now.to_date }
 

@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   # Adjust the validation to have the intersection of published_on
   validates(
     :slug,
-    length: {maximum: 250},
+    length: {maximum: 255},
     presence: true,
     uniqueness: {case_sensitive: false}
   )
@@ -15,9 +15,7 @@ class Article < ApplicationRecord
 
   scope :published, -> { where(published: true) }
   scope :unpublished, -> { where(published: false)}
-  scope :private , -> { where(private: true) }
-  scope :public, -> { where(private: false) }
-
-
-  # Add combined scope
+  scope :closed , -> { where(public: false) }
+  scope :open, -> { where(public: true) }
+  scope :live, -> { public.published }
 end
