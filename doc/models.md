@@ -30,6 +30,7 @@
 - slug
 - title
 - description
+- `alt_text`
 - `file_name`
 - `copyright_year`
 - geoprivacy
