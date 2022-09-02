@@ -1,4 +1,4 @@
- require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Article, type: :model do
   subject { FactoryBot.create(:article) }
@@ -18,14 +18,80 @@ RSpec.describe Article, type: :model do
   end
 
   describe "scopes" do
-    describe "published"
-    describe "unpublished"
-    describe "open"
-    describe "non_public"
-    describe "live"
-  end
+    describe "is_published" do
+      it "includes articles where published is true" do
+        article = FactoryBot.create(:published_article)
 
-  describe "defaults" do
+        expect(Article.is_published).to include(article)
+      end
 
+      it "does not include articles where published is false" do
+        article = FactoryBot.create(:unpublished_article)
+
+        expect(Article.is_published).not_to include(article)
+      end
+    end
+
+    describe "is_unpublished" do
+      it "does not include articles where published is true" do
+        article = FactoryBot.create(:published_article)
+
+        expect(Article.is_unpublished).not_to include(article)
+      end
+
+      it "includes articles where published is false" do
+        article = FactoryBot.create(:unpublished_article)
+
+        expect(Article.is_unpublished).to include(article)
+      end
+    end
+
+    describe "is_public" do
+      it "includes articles where public is true" do
+        article = FactoryBot.create(:public_article)
+
+        expect(Article.is_public).to include(article)
+      end
+
+      it "does not include articles where public is false" do
+        article = FactoryBot.create(:private_article)
+
+        expect(Article.is_public).not_to include(article)
+      end
+    end
+
+    describe "is_private" do
+      it "does not include articles where public is true" do
+        article = FactoryBot.create(:public_article)
+
+        expect(Article.is_private).not_to include(article)
+      end
+
+      it "includes articles where public is false" do
+        article = FactoryBot.create(:private_article)
+
+        expect(Article.is_private).to include(article)
+      end
+    end
+
+    describe "live" do
+      it "includes articles that are published and public" do
+        article = FactoryBot.create(:live_article)
+
+        expect(Article.live).to include(article)
+      end
+
+      it "does not include articles that are private" do
+        article = FactoryBot.create(:private_article)
+
+        expect(Article.live).not_to include(article)
+      end
+
+      it "does not include articles that are unpublished" do
+        article = FactoryBot.create(:unpublished_article)
+
+        expect(Article.live).not_to include(article)
+      end
+    end
   end
 end
