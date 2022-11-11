@@ -16,8 +16,8 @@
   --border: #000;
   --text: #000;
   --accent: #0d47a1;
-  --notice: #B6F2FF;
-  --error:
+  --notice: #b6f2ff;
+  --error: #ff3333
 }
 
 /* Dark theme */
@@ -88,6 +88,11 @@ nav ol li {
   margin: 0 0.25rem;
 }
 
+textarea {
+
+}
+
+
 .flashes-notice {
   background-color: var(--notice);
 }
@@ -95,3 +100,4 @@ nav ol li {
 .flashes-error {
   background-color: var(--error);
 }
+

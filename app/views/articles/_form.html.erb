@@ -13,22 +13,22 @@
 
   <div>
     <%= form.label :slug, style: "display: block" %>
-    <%= form.text_field :slug %>
+    <%= form.text_field :slug, required: true, size: 40 %>
   </div>
 
   <div>
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, size: 40 %>
   </div>
 
   <div>
     <%= form.label :summary, style: "display: block" %>
-    <%= form.text_area :summary %>
+    <%= form.text_area :summary, rows: 4 %>
   </div>
 
   <div>
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, rows: 20 %>
   </div>
 
   <div>
@@ -37,6 +37,21 @@
       form.select :site_id,
       Site.all.collect { |site| [site.name, site.id] }, include_blank: false
     %>
+  </div>
+
+  <div>
+    <%= form.label :published_on, style: "display: block" %>
+    <%= form.date_field :published_on %>
+  </div>
+
+  <div>
+    <%= form.label :published, style: "display: block" %>
+    <%= form.check_box :published %>
+  </div>
+
+  <div>
+    <%= form.label :public, style: "display: block" %>
+    <%= form.check_box :public %>
   </div>
 
   <div>
