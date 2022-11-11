@@ -1,5 +1,8 @@
 FactoryBot.define do
-  factory :article, aliases: [:live_article, :public_article, :published_article] do
+  factory(
+    :article,
+    aliases: [:live_article, :public_article, :published_article]
+  ) do
     slug { "slug" }
     title { "Title" }
     summary { "Summary of the article" }
