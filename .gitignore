@@ -30,5 +30,10 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore SSL certs
+/config/ssl/*
+!/config/ssl/
+!/config/ssl/.keep
+
 # Ignore RSpec statekeeping
 /spec/examples.txt
