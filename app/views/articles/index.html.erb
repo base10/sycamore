@@ -1,12 +1,9 @@
 <h1>Articles</h1>
 
-<div id="articles">
+<section id="articles">
   <% @articles.each do |article| %>
     <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-    </p>
   <% end %>
-</div>
+</section>
 
 <%= link_to "New article", new_article_path %>
