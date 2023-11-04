@@ -11,12 +11,8 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
-<<<<<<< HEAD
-gem "redis", "~> 5.0"
-=======
 gem "redcarpet"
-gem "redis", "~> 4.0"
->>>>>>> 792c4e7 (fixup! Adds articles)
+gem "redis", "~> 5.0"
 gem "sidekiq"
 gem "sidekiq-failures"
 
