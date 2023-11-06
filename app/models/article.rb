@@ -14,8 +14,8 @@ class Article < ApplicationRecord
   validates(:published_on, presence: true)
 
   scope :is_published, -> { where(published: true) }
-  scope :is_unpublished, -> { where(published: false)}
-  scope :is_private , -> { where(public: false) }
+  scope :is_unpublished, -> { where(published: false) }
+  scope :is_private, -> { where(public: false) }
   scope :is_public, -> { where(public: true) }
   scope :live, -> { is_public.is_published }
 end
