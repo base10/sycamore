@@ -1,34 +1,28 @@
-<div id="<%= dom_id article %>">
-  <p>
-    <strong>Slug:</strong>
-    <%= article.slug %>
-  </p>
+<article id="<%= dom_id article %>">
+  <h3><%= article.title %></h3>
 
-  <p>
-    <strong>Site:</strong>
-    <%= article.site.name %>
-  </p>
+  <ul class="article-metadata">
+    <li><strong>Slug:</strong> <%= article.slug %></li>
+    <li><strong>Site:</strong> <%= article.site.name %></li>
+    <li><strong>Author:</strong> <%= article.user.name %></li>
+    <li><strong>Tags</strong></li>
+  </ul>
 
-  <p>
-    <strong>Summary:</strong>
-    <%= article.summary %>
-  </p>
+  <ul class="article-dates">
+    <li><strong>Published:</strong> <%= article.published %></li>
+    <li><strong>Published on:</strong> <%= article.published_on.strftime("%A, %d %B, %Y") %></li>
+    <li><strong>Created at:</strong> <%= article.created_at.strftime("%F %H:%M:%S %z") %></li>
+    <li><strong>Updated at:</strong> <%= article.updated_at.strftime("%F %H:%M:%S %z") %></li>
+  </ul>
 
-  <!-- Published -->
-  <!-- public -->
-  <!-- Published on -->
+  <section>
+    <em><%= markdown(article.summary) %></em>
 
-  <p>
-    <strong>Title:</strong>
-    <%= article.title %>
-  </p>
+    <%= markdown(article.body_for_index) %>
 
-  <p>
-    <strong>Body:</strong>
-    <%= markdown(article.body) %>
-  </p>
-
-  <p>
-    <%= link_to "Show this article", article %>
-  </p>
-</div>
+    <nav>
+      <%= link_to "Show full article", article %>
+      <%= link_to "Edit article", edit_article_path(article) %>
+    </nav>
+  </section>
+</article>

@@ -1,8 +1,11 @@
 <h1>Articles</h1>
 
+<%= link_to "New article", new_article_path %>
+
 <section id="articles">
   <% @articles.each do |article| %>
     <%= render article %>
+    <hr>
   <% end %>
 </section>
 

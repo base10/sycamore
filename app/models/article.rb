@@ -18,4 +18,10 @@ class Article < ApplicationRecord
   scope :is_private, -> { where(public: false) }
   scope :is_public, -> { where(public: true) }
   scope :live, -> { is_public.is_published }
+
+  def body_for_index
+    lines = body.split("\n")
+
+    lines[0,3].join("\n")
+  end
 end
